@@ -1,0 +1,27 @@
+<%- include("partials/header") -%>
+
+<div class="ui main text container segment">
+    <div class="ui huge header"><%= blog.title %></div>
+    <div class="ui top attached">
+        <div class="item">
+            <img class="ui rounded centered image" src="<%= blog.image %>">
+            <div class="content">
+               <strong> <em><%= blog.created %>
+                <span class="submitted">Submitted By <%= blog.author.name%></span></em></strong>
+            </div>
+            <div class="description"><p><%- blog.body %></p></div>          
+        </div>
+    </div>  
+    <% if(userId == blog.author.id){ %>
+        <div class="edit-delete">
+            <a class="ui orange basic button e" href="/blogs/<%= blog._id %>/edit">Edit</a>
+            <form id="delete" action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
+                <button class="ui red basic button">Delete</button>
+            </form> 
+        </div>
+    <%}%>
+    
+    
+</div>
+
+<%- include("partials/footer") -%>
