@@ -42,3 +42,9 @@ img{
     right: 0;
     position: absolute;
 }
+
+.ui[class*="top attached"].segment{
+    box-shadow: 1px 1px rgb(230, 230, 235);
+    border-radius: 3px;
+}
+
