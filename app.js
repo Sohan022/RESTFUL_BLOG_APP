@@ -192,7 +192,7 @@ app.post('/resendToken',function(req,res,next) {
     
                 // Send the email
                     var transporter = nodemailer.createTransport({ service: 'Sendgrid', auth: { user: 'Username', pass: 'Password' } });
-                    var mailOptions = { from: 'Your_Email', to: user.email, subject: 'Account Verification Token', text: 'Hello '+ req.body.name +',\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/confirmation\/' + user.email + '\/' + token.token + '\n\nThank You!\n' };
+                    var mailOptions = { from: 'Your_Email', to: user.email, subject: 'Account Verification Token', text: 'Hello '+ user.name +',\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/confirmation\/' + user.email + '\/' + token.token + '\n\nThank You!\n' };
                     transporter.sendMail(mailOptions, function (err) {
                         if (err) { 
                             req.flash('error','Technical Issue!, Please click on resend verify Email.');
