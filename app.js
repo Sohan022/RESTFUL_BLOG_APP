@@ -123,8 +123,8 @@ app.post('/register',function(req,res,next){
                 if (err) {return console.log(err); }
 
                 // Send the email
-                var transporter = nodemailer.createTransport({ service: 'Sendgrid', auth: { user: 'sl_gupta', pass: 'Sohan02210@' } });
-                var mailOptions = { from: 'slgupta022@gmail.com', to: user.email, subject: 'Account Verification Token', text: 'Hello '+ req.body.name +',\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/confirmation\/' + user.email + '\/' + token.token + '\n\nThank You!\n' };
+                var transporter = nodemailer.createTransport({ service: 'Sendgrid', auth: { user: 'Username', pass: 'Password' } });
+                var mailOptions = { from: 'Your_Email', to: user.email, subject: 'Account Verification Token', text: 'Hello '+ req.body.name +',\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/confirmation\/' + user.email + '\/' + token.token + '\n\nThank You!\n' };
                 transporter.sendMail(mailOptions, function (err) {
                     if (err) { 
                         req.flash('error','Technical Issue!, Please click on resend for verify your Email.');
